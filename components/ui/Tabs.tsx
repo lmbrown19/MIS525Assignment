@@ -24,7 +24,7 @@ export function Tabs({
       <div
         role="tablist"
         aria-label="Tabs"
-        className="flex gap-1 border-b border-[var(--border)]"
+        className="flex gap-1 border-b-2 border-white/30"
       >
         {tabs.map((tab) => {
           const isActive = activeId === tab.id;
@@ -37,10 +37,10 @@ export function Tabs({
               aria-controls={`${idBase}-panel-${tab.id}`}
               tabIndex={isActive ? 0 : -1}
               onClick={() => setActiveId(tab.id)}
-              className={`rounded-t-lg px-4 py-2.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-0 ${
+              className={`flex items-center justify-center rounded-t-lg px-4 py-2.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-0 ${
                 isActive
-                  ? "bg-accent-light text-accent border-b-2 border-accent -mb-px"
-                  : "text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--text)]"
+                  ? "bg-accent text-white border-b-2 border-accent -mb-px shadow-md"
+                  : "text-white/70 hover:bg-white/10 hover:text-white"
               }`}
             >
               {tab.label}

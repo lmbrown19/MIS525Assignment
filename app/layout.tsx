@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { ScrollBackground } from "@/components/ScrollBackground";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "Tennis Record - Estimated Tennis Ratings and Statistics",
@@ -26,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen flex flex-col font-sans">
+    <html lang="en">
+      <body className="min-h-screen flex flex-col font-sans relative">
+        <ScrollBackground />
+        <ScrollProgress />
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 relative z-10">{children}</main>
         <SiteFooter />
       </body>
     </html>

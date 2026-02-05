@@ -1,23 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Primary: light blue + white */
-  --primary: #0ea5e9;
-  --primary-hover: #0284c7;
-  --primary-light: #e0f2fe;
-  --bg: #ffffff;
-  --surface: #f8fafc;
+  /* Background: light blue/sky blue */
+  --bg: #87ceeb;
+  --bg-light: #b0e0e6;
+  --bg-dark: #6bb6d6;
+  /* Surface: white cards on blue bg */
+  --surface: #ffffff;
+  --surface-light: #f8fafc;
+  /* Primary: white text/links */
+  --primary: #ffffff;
+  --primary-hover: #e0f2fe;
+  --primary-dark: #f0f9ff;
   /* Accent: tennis green */
   --accent: #22c55e;
   --accent-hover: #16a34a;
   --accent-light: #dcfce7;
-  /* Neutrals */
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --text: #0f172a;
-  --text-muted: #475569;
+  --accent-dark: #15803d;
+  /* Text: white on blue bg */
+  --text: #ffffff;
+  --text-muted: #e0f2fe;
+  --text-dark: #0f172a;
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.3);
+  --border-light: rgba(255, 255, 255, 0.2);
+  --muted: rgba(255, 255, 255, 0.7);
 }
 
 @layer base {
@@ -25,16 +36,43 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-[var(--bg)] text-[var(--text)] antialiased;
+    @apply text-[var(--text)] antialiased min-h-screen;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Background will be handled by ScrollBackground component */
+  }
+  * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   h1 {
-    @apply text-2xl font-bold tracking-tight sm:text-3xl;
+    @apply text-2xl font-bold tracking-tight sm:text-3xl text-white;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
   h2 {
-    @apply text-xl font-semibold sm:text-2xl;
+    @apply text-xl font-semibold sm:text-2xl text-white;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
   }
   h3 {
-    @apply text-lg font-semibold sm:text-xl;
+    @apply text-lg font-semibold sm:text-xl text-white;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+  p {
+    font-weight: 500;
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+  /* Improve readability for white text on blue background */
+  .text-white {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   }
   /* Focus ring uses accent for visibility */
   *:focus-visible {
@@ -57,9 +95,9 @@
   top: 0;
   z-index: 10;
   background: var(--surface);
-  box-shadow: 0 1px 0 var(--border);
+  box-shadow: 0 1px 0 var(--border-light);
 }
 
 .table-zebra tbody tr:nth-child(even) {
-  background: var(--surface);
+  background: var(--surface-light);
 }

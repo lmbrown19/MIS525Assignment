@@ -13,7 +13,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <div
-      className={`${narrow ? "container-narrow" : "container-wide"} py-6 sm:py-8 ${className}`}
+      className={`${narrow ? "container-narrow" : "container-wide"} py-8 sm:py-12 ${className}`}
     >
       {children}
     </div>

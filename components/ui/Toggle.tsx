@@ -26,8 +26,8 @@ export function Toggle({
         id={id}
         aria-checked={checked}
         onClick={() => onChange(!checked)}
-        className="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[var(--border)] transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 data-[state=checked]:bg-accent"
-        style={{ backgroundColor: checked ? "var(--accent)" : "var(--border)" }}
+        className="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        style={{ backgroundColor: checked ? "var(--accent)" : "rgba(255, 255, 255, 0.3)" }}
       >
         <span
           className="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition-transform"
@@ -39,12 +39,12 @@ export function Toggle({
       <div className="flex-1">
         <label
           htmlFor={id}
-          className="cursor-pointer text-sm font-medium text-[var(--text)]"
+          className="cursor-pointer text-sm font-medium text-white"
         >
           {label}
         </label>
         {helperText && (
-          <p className="mt-0.5 text-xs text-[var(--text-muted)]">{helperText}</p>
+          <p className="mt-0.5 text-xs text-white/80">{helperText}</p>
         )}
       </div>
     </div>

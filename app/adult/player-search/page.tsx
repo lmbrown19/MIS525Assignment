@@ -50,29 +50,29 @@ export default function PlayerSearchPage() {
 
   return (
     <Container>
-      <h1 className="mb-6">Player Search</h1>
+      <h1 className="mb-8 text-white">Player Search</h1>
 
       <form
-        className="mb-8 rounded-xl border border-[var(--border)] bg-white p-4 shadow-card sm:p-6"
+        className="mb-10 rounded-xl border-2 border-white/30 bg-white p-6 shadow-lg sm:p-8"
         onSubmit={handleSubmit}
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Input
             label="First Name"
             placeholder="First name"
             value={first}
             onChange={(e) => setFirst(e.target.value)}
-            helperText="Enter part of the first name to filter."
+            helperText="Enter part of the first name"
           />
           <Input
             label="Last Name"
             placeholder="Last name"
             value={last}
             onChange={(e) => setLast(e.target.value)}
-            helperText="Enter part of the last name to filter."
+            helperText="Enter part of the last name"
           />
           <div className="flex items-end">
-            <Button type="submit" size="lg" className="w-full sm:w-auto">
+            <Button type="submit" variant="accent" size="lg" className="w-full sm:w-auto">
               Search
             </Button>
           </div>
@@ -80,7 +80,7 @@ export default function PlayerSearchPage() {
       </form>
 
       <section aria-label="Search results">
-        <h2 className="mb-4 text-lg font-semibold text-[var(--text)]">
+        <h2 className="mb-6 text-xl font-semibold text-white">
           Results
         </h2>
         {players.length === 0 ? (

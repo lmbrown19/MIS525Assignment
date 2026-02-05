@@ -46,7 +46,7 @@ export function Accordion({
         return (
           <div
             key={item.id}
-            className="rounded-lg border border-[var(--border)] bg-white overflow-hidden"
+            className="rounded-lg border-2 border-white/30 bg-white overflow-hidden shadow-md"
           >
             <h3>
               <button
@@ -55,11 +55,15 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(item.id)}
-                className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium text-[var(--text)] hover:bg-[var(--surface)] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+                className={`flex w-full items-center justify-between gap-2 px-4 py-3 text-left text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent ${
+                  isOpen
+                    ? "text-accent bg-[var(--accent-light)]"
+                    : "text-[var(--text-dark)] hover:bg-[var(--surface-light)]"
+                }`}
               >
                 {item.title}
                 <svg
-                  className={`h-5 w-5 shrink-0 text-[var(--muted)] transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  className={`h-5 w-5 shrink-0 transition-transform ${isOpen ? "rotate-180 text-accent" : "text-[var(--text-dark)]/50"}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -78,9 +82,9 @@ export function Accordion({
               role="region"
               aria-labelledby={buttonId}
               hidden={!isOpen}
-              className="border-t border-[var(--border)]"
+              className="border-t border-white/20"
             >
-              <div className="px-4 py-3 text-sm text-[var(--text-muted)]">
+              <div className="px-4 py-3 text-sm text-[var(--text-dark)]/70">
                 {item.content}
               </div>
             </div>

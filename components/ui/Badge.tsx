@@ -7,9 +7,9 @@ type BadgeProps = {
 };
 
 const variantStyles = {
-  default: "bg-[var(--surface)] text-[var(--text)] border-[var(--border)]",
-  accent: "bg-accent-light text-accent border-accent/30",
-  muted: "bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border)]",
+  default: "bg-white text-[var(--bg-dark)] border-white/30",
+  accent: "bg-accent text-white border-accent shadow-md",
+  muted: "bg-white/80 text-[var(--text-dark)]/70 border-white/30",
 };
 
 export function Badge({

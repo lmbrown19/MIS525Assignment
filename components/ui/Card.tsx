@@ -14,7 +14,7 @@ export function Card({
 }: CardProps) {
   return (
     <Component
-      className={`rounded-xl border border-[var(--border)] bg-white shadow-card ${className}`}
+      className={`rounded-xl border border-white/30 bg-white shadow-lg ${className}`}
     >
       {children}
     </Component>
@@ -32,13 +32,13 @@ export function CardLink({ href, title, description, className = "" }: CardLinkP
   return (
     <Link
       href={href}
-      className={`block rounded-xl border border-[var(--border)] bg-white p-4 shadow-card transition-shadow hover:shadow-card-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 min-h-[80px] ${className}`}
+      className={`flex flex-col items-center justify-center rounded-xl border-2 border-white/30 bg-white p-4 shadow-lg transition-all hover:shadow-xl hover:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 w-full text-center ${className}`}
     >
-      <span className="font-semibold text-primary hover:text-primary-hover">
+      <span className="font-semibold text-[var(--bg-dark)] hover:text-accent transition-colors text-lg sm:text-xl">
         {title}
       </span>
       {description && (
-        <p className="mt-1 text-sm text-[var(--text-muted)]">{description}</p>
+        <p className="mt-1.5 text-sm text-[var(--text-dark)]/70">{description}</p>
       )}
     </Link>
   );

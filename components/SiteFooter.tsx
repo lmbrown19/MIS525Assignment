@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--surface)]">
+    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--bg-dark)]">
       <div className="container-wide py-6">
-        <p className="text-center text-sm text-[var(--text-muted)]">
+        <p className="text-center text-sm text-white/90">
           This site is not affiliated, endorsed, or associated by or with the
           USTA in any manner nor are the ratings affiliated with the NTRP rating
           system.
         </p>
-        <p className="mt-2 text-center text-xs text-[var(--muted)]">
+        <p className="mt-2 text-center text-xs text-white/70">
           Copyright © 2016–2026 TennisRecord.com. All rights reserved.
         </p>
         <nav
@@ -18,13 +18,13 @@ export function SiteFooter() {
         >
           <Link
             href="/privacy"
-            className="text-sm font-medium text-primary hover:text-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="text-sm font-medium text-white hover:text-[var(--accent-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             Privacy Policy
           </Link>
           <Link
             href="/sitemap"
-            className="text-sm font-medium text-primary hover:text-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="text-sm font-medium text-white hover:text-[var(--accent-light)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             Sitemap
           </Link>

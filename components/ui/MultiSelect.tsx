@@ -57,7 +57,7 @@ export function MultiSelect({
       {label && (
         <label
           htmlFor={id}
-          className="mb-1 block text-sm font-medium text-[var(--text)]"
+          className="mb-1 block text-sm font-medium text-white"
         >
           {label}
         </label>
@@ -66,16 +66,16 @@ export function MultiSelect({
         type="button"
         id={id}
         onClick={() => setOpen(!open)}
-        className="flex min-h-[44px] w-full items-center justify-between rounded-lg border border-[var(--border)] bg-white px-3 py-2.5 text-left text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 sm:min-h-[40px]"
+        className="flex min-h-[44px] w-full items-center justify-between rounded-lg border-2 border-white/30 bg-white px-3 py-2.5 text-left text-[var(--text-dark)] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 sm:min-h-[40px]"
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={label || "Multi-select"}
       >
-        <span className={value.length === 0 ? "text-[var(--muted)]" : ""}>
+        <span className={value.length === 0 ? "text-[var(--text-dark)]/50" : ""}>
           {displayLabel}
         </span>
         <svg
-          className={`h-5 w-5 shrink-0 text-[var(--muted)] transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 shrink-0 text-[var(--text-dark)]/50 transition-transform ${open ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -91,7 +91,7 @@ export function MultiSelect({
       {open && (
         <ul
           role="listbox"
-          className="mt-1 max-h-48 overflow-auto rounded-lg border border-[var(--border)] bg-white py-1 shadow-lg"
+          className="mt-1 max-h-48 overflow-auto rounded-lg border-2 border-white/30 bg-white py-1 shadow-lg"
         >
           {options.map((opt) => {
             const checked = value.includes(opt.value);
@@ -99,14 +99,14 @@ export function MultiSelect({
               <li key={opt.value} role="option" aria-selected={checked}>
                 <button
                   type="button"
-                  className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-[var(--surface)] focus:bg-[var(--surface)] focus:outline-none"
+                  className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-[var(--text-dark)] hover:bg-[var(--surface-light)] focus:bg-[var(--surface-light)] focus:outline-none"
                   onClick={() => toggle(opt.value)}
                 >
                   <span
                     className={`flex h-4 w-4 items-center justify-center rounded border ${
                       checked
                         ? "border-accent bg-accent text-white"
-                        : "border-[var(--border)]"
+                        : "border-white/30"
                     }`}
                   >
                     {checked && (
@@ -127,7 +127,7 @@ export function MultiSelect({
         </ul>
       )}
       {helperText && (
-        <p className="mt-1 text-xs text-[var(--text-muted)]">{helperText}</p>
+        <p className="mt-1 text-xs text-white/80">{helperText}</p>
       )}
     </div>
   );

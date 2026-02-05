@@ -32,7 +32,7 @@ export function Table<T extends Record<string, unknown>>({
   if (data.length === 0) {
     return (
       <div
-        className={`overflow-hidden rounded-xl border border-[var(--border)] ${className}`}
+        className={`overflow-hidden rounded-xl border-2 border-white/30 bg-white shadow-lg ${className}`}
         role="region"
         aria-label="Table empty"
       >
@@ -42,7 +42,7 @@ export function Table<T extends Record<string, unknown>>({
               {columns.map((col) => (
                 <th
                   key={col.key}
-                  className="border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-left text-sm font-semibold text-[var(--text)]"
+                  className="border-b border-white/20 bg-[var(--surface-light)] px-4 py-3 text-left text-sm font-semibold text-[var(--text-dark)]"
                 >
                   {col.header}
                 </th>
@@ -53,7 +53,7 @@ export function Table<T extends Record<string, unknown>>({
             <tr>
               <td
                 colSpan={columns.length}
-                className="px-4 py-8 text-center text-sm text-[var(--text-muted)]"
+                className="px-4 py-8 text-center text-sm text-[var(--text-dark)]/70"
               >
                 {emptyMessage}
               </td>
@@ -66,7 +66,7 @@ export function Table<T extends Record<string, unknown>>({
 
   return (
     <div
-      className={`overflow-x-auto overflow-y-auto rounded-xl border border-[var(--border)] ${stickyHeader ? "table-sticky max-h-[70vh]" : ""} ${zebra ? "table-zebra" : ""} ${className}`}
+      className={`overflow-x-auto overflow-y-auto rounded-xl border-2 border-white/30 bg-white shadow-lg ${stickyHeader ? "table-sticky max-h-[70vh]" : ""} ${zebra ? "table-zebra" : ""} ${className}`}
       role="region"
       aria-label="Data table"
     >
@@ -76,7 +76,7 @@ export function Table<T extends Record<string, unknown>>({
             {columns.map((col) => (
               <th
                 key={col.key}
-                className="border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-left text-sm font-semibold text-[var(--text)]"
+                className="border-b border-white/20 bg-[var(--surface-light)] px-4 py-3 text-left text-sm font-semibold text-[var(--text-dark)]"
               >
                 {col.header}
               </th>
@@ -88,16 +88,16 @@ export function Table<T extends Record<string, unknown>>({
             <tr
               key={String(row[keyField])}
               onClick={() => onRowClick?.(row)}
-              className={`border-b border-[var(--border)] transition-colors ${
+              className={`border-b border-white/10 transition-colors ${
                 onRowClick
-                  ? "cursor-pointer hover:bg-[var(--primary-light)]"
+                  ? "cursor-pointer hover:bg-[var(--accent-light)]"
                   : ""
               }`}
             >
               {columns.map((col) => (
                 <td
                   key={col.key}
-                  className={`px-4 py-3 text-sm text-[var(--text)] ${col.className ?? ""}`}
+                  className={`px-4 py-3 text-sm text-[var(--text-dark)] ${col.className ?? ""}`}
                 >
                   {col.render
                     ? col.render(row)

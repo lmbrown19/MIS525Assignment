@@ -39,7 +39,7 @@ export default function PlayerRatingsPage() {
       render: (r: Player) => (
         <Link
           href={`/adult/player/${r.slug}`}
-          className="font-medium text-primary hover:text-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          className="font-medium text-accent hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         >
           {r.firstName} {r.lastName}
         </Link>
@@ -99,13 +99,13 @@ export default function PlayerRatingsPage() {
 
   return (
     <Container>
-      <h1 className="mb-6">Player Ratings</h1>
+      <h1 className="mb-8 text-white">Player Ratings</h1>
 
       <form
-        className="mb-8 rounded-xl border border-[var(--border)] bg-white p-4 shadow-card sm:p-6"
+        className="mb-10 rounded-xl border-2 border-white/30 bg-white p-6 shadow-lg sm:p-8"
         onSubmit={(e) => e.preventDefault()}
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           <Select
             label="Section"
             options={[{ value: "", label: "All" }, ...SECTIONS_OPTIONS]}
@@ -142,7 +142,7 @@ export default function PlayerRatingsPage() {
         </div>
       </form>
 
-      <p className="mb-4 text-sm text-[var(--text-muted)]">
+      <p className="mb-6 text-sm text-white/80">
         Updated: {MOCK_UPDATED_TIMESTAMP}
       </p>
 
@@ -153,8 +153,8 @@ export default function PlayerRatingsPage() {
         emptyMessage="No players match your filters."
       />
 
-      <section className="mt-10">
-        <h2 className="mb-4 text-lg font-semibold text-[var(--text)]">
+      <section className="mt-12">
+        <h2 className="mb-6 text-xl font-semibold text-white">
           Glossary
         </h2>
         <Accordion items={glossaryItems} allowMultiple defaultOpen={[]} />
